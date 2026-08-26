@@ -19,11 +19,11 @@
   // Each model only lists the badges it is made for, with its score on each.
   // b: array of [badgeId, score] pairs.
   var MODELS = [
-    { name: 'DeepSeek V4 Flash 0731', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 88], ['coding', 87], ['multimodal'], ['opensource']] },
-    { name: 'DeepSeek V4 Pro 0813', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 89], ['coding', 87], ['reasoning'], ['multimodal'], ['opensource']] },
-    { name: 'Qwen 3.8 Max', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', b: [['reasoning'], ['coding', 89], ['agentic', 90], ['multimodal', 90], ['opensource']] },
-    { name: 'Qwen 3.7 Max', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', b: [['reasoning'], ['agentic', 76], ['coding', 87], ['multimodal', 88], ['opensource']] },
-    { name: 'Qwen 3.7 Plus', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', b: [['speed'], ['coding', 82], ['multimodal', 88], ['opensource']] }
+    { name: 'DeepSeek V4 Flash 0731', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', apiIn: 1.32, apiOut: 3.96, b: [['agentic', 88], ['coding', 87], ['multimodal'], ['opensource']] },
+    { name: 'DeepSeek V4 Pro 0813', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', apiIn: 0.44, apiOut: 1.32, b: [['agentic', 89], ['coding', 87], ['reasoning'], ['multimodal'], ['opensource']] },
+    { name: 'Qwen 3.8 Max', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', apiIn: 2.00, apiOut: 6.00, b: [['reasoning'], ['coding', 89], ['agentic', 90], ['multimodal', 90], ['opensource']] },
+    { name: 'Qwen 3.7 Max', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', apiIn: 2.50, apiOut: 7.50, b: [['reasoning'], ['agentic', 76], ['coding', 87], ['multimodal', 88], ['opensource']] },
+    { name: 'Qwen 3.7 Plus', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', apiIn: 0.40, apiOut: 1.60, b: [['speed'], ['coding', 82], ['multimodal', 88], ['opensource']] }
   ];
 
   function scoreMap(m) {
@@ -56,7 +56,7 @@
     return Math.round(vals.reduce(function (a, b) { return a + map[b]; }, 0) / vals.length * 10) / 10;
   }
 
-  var state = { badges: [], priceMin: 0, priceMax: 50, sort: 'match' };
+  var state = { badges: [], priceMin: 0, priceMax: 50, apiMin: 0, apiMax: 50, sort: 'match' };
 
   var badgeBox = document.getElementById('badge-filters');
   var listBox = document.getElementById('model-list');
@@ -65,6 +65,10 @@
   var maxInput = document.getElementById('price-max');
   var fill = document.getElementById('range-fill');
   var rangeLabel = document.getElementById('price-range-label');
+  var apiMinInput = document.getElementById('api-min');
+  var apiMaxInput = document.getElementById('api-max');
+  var apiFill = document.getElementById('api-range-fill');
+  var apiRangeLabel = document.getElementById('api-range-label');
 
   BADGES.forEach(function (b) {
     var btn = document.createElement('button');
@@ -92,8 +96,25 @@
     render();
   }
 
+  function fmtApi(v) {
+    return (Math.round(v * 10) / 10).toString();
+  }
+
+  function updateApiRange() {
+    var min = Math.min(+apiMinInput.value, +apiMaxInput.value);
+    var max = Math.max(+apiMinInput.value, +apiMaxInput.value);
+    state.apiMin = min;
+    state.apiMax = max;
+    apiFill.style.left = (min / 50 * 100) + '%';
+    apiFill.style.right = (100 - max / 50 * 100) + '%';
+    apiRangeLabel.innerHTML = '$' + fmtApi(min) + ' &#8211; $' + fmtApi(max);
+    render();
+  }
+
   minInput.addEventListener('input', updateRange);
   maxInput.addEventListener('input', updateRange);
+  apiMinInput.addEventListener('input', updateApiRange);
+  apiMaxInput.addEventListener('input', updateApiRange);
 
   document.getElementById('sort-select').addEventListener('change', function (e) {
     state.sort = e.target.value;
@@ -101,12 +122,15 @@
   });
 
   document.getElementById('reset-filters').addEventListener('click', function () {
-    state = { badges: [], priceMin: 0, priceMax: 50, sort: 'match' };
+    state = { badges: [], priceMin: 0, priceMax: 50, apiMin: 0, apiMax: 10, sort: 'match' };
     document.querySelectorAll('.badge-filters .chip').forEach(function (x) { x.classList.remove('is-active'); });
     minInput.value = 0;
     maxInput.value = 50;
+    apiMinInput.value = 0;
+    apiMaxInput.value = 50;
     document.getElementById('sort-select').value = 'match';
     updateRange();
+    updateApiRange();
   });
 
   function priceLabel(p) { return p === 0 ? 'Free' : '$' + p + '/mo'; }
@@ -117,8 +141,16 @@
   }
 
   function render() {
+    var apiFilterActive = state.apiMin > 0 || state.apiMax < 50;
     var list = MODELS.filter(function (m) {
-      return m.price >= state.priceMin && m.price <= state.priceMax;
+      if (m.price < state.priceMin || m.price > state.priceMax) return false;
+      if (apiFilterActive) {
+        // API price filter active: models without known API pricing are excluded
+        if (m.apiOut == null) return false;
+        var api = Math.max(m.apiIn, m.apiOut);
+        if (api < state.apiMin || api > state.apiMax) return false;
+      }
+      return true;
     });
 
     list.forEach(function (m) {
@@ -171,7 +203,9 @@
       card.innerHTML =
         '<div class="row-topline"><span class="row-rank">#' + (idx + 1) + '</span><span class="row-score">' + m._score + '</span></div>' +
         '<div class="row-head"><h3>' + esc(m.name) + '</h3><span class="model-vendor">' + esc(m.vendor) + '</span></div>' +
-        '<div class="row-meta"><span class="row-price">' + priceLabel(m.price) + '</span><span class="row-overall">Overall ' + m._overall.toFixed(1) + '/100</span>' +
+        '<div class="row-meta"><span class="row-price">' + priceLabel(m.price) + '</span>' +
+        (m.apiOut != null ? '<span class="row-api" title="API pricing per 1M tokens">API In $' + fmtApi(m.apiIn) + ' / Out $' + fmtApi(m.apiOut) + '</span>' : '') +
+        '<span class="row-overall">Overall ' + m._overall.toFixed(1) + '/100</span>' +
         (m.added ? '<span class="row-added">Updated ' + esc(m.added.split('-').reverse().join('/')) + '</span>' : '') + '</div>' +
         '<div class="badge-pills">' + pillsHtml + '</div>' +
         (m.url ? '<a class="model-link" href="' + esc(m.url) + '" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Try ' + esc(m.name) + ' &#8594;</a>' : '');
@@ -180,6 +214,6 @@
   }
 
   updateRange();
-  render();
+  updateApiRange();
 })();
 

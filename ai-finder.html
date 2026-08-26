@@ -71,6 +71,15 @@
               </div>
             </div>
             <div class="side-block">
+              <div class="side-title">API price <span class="range-value" id="api-range-label">$0 &#8211; $50</span><small>per 1M tokens</small></div>
+              <div class="range-wrap">
+                <div class="range-track"></div>
+                <div class="range-fill" id="api-range-fill"></div>
+                <input type="range" id="api-min" min="0" max="50" step="0.5" value="0" aria-label="Minimum API price" />
+                <input type="range" id="api-max" min="0" max="50" step="0.5" value="50" aria-label="Maximum API price" />
+              </div>
+            </div>
+            <div class="side-block">
               <div class="side-title">Sort by</div>
               <select class="sort-select" id="sort-select" aria-label="Sort models">
                 <option value="match">Badge score</option>
