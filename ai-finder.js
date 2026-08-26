@@ -32,7 +32,7 @@
   function overall(m) {
     var scored = m.b.filter(function (p) { return p.length > 1; });
     if (!scored.length) return 0;
-    return Math.round(scored.reduce(function (a, p) { return a + p[1]; }, 0) / scored.length);
+    return Math.round(scored.reduce(function (a, p) { return a + p[1]; }, 0) / scored.length * 10) / 10;
   }
 
   function esc(s) {
@@ -158,7 +158,7 @@
       card.innerHTML =
         '<div class="row-topline"><span class="row-rank">#' + (idx + 1) + '</span><span class="row-score">' + m._score + '</span></div>' +
         '<div class="row-head"><h3>' + esc(m.name) + '</h3><span class="model-vendor">' + esc(m.vendor) + '</span></div>' +
-        '<div class="row-meta"><span class="row-price">' + priceLabel(m.price) + '</span><span class="row-overall">Overall ' + m._overall + '/100</span>' +
+        '<div class="row-meta"><span class="row-price">' + priceLabel(m.price) + '</span><span class="row-overall">Overall ' + m._overall.toFixed(1) + '/100</span>' +
         (m.added ? '<span class="row-added">Benchmarked ' + esc(m.added.split('-').reverse().join('/')) + '</span>' : '') + '</div>' +
         '<div class="badge-pills">' + pillsHtml + '</div>' +
         (m.url ? '<a class="model-link" href="' + esc(m.url) + '" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Try ' + esc(m.name) + ' &#8594;</a>' : '');
