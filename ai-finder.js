@@ -19,18 +19,19 @@
   // Each model only lists the badges it is made for, with its score on each.
   // b: array of [badgeId, score] pairs.
   var MODELS = [
-    { name: 'DeepSeek V4 Flash 0731', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 88], ['coding', 87], ['opensource', 90]] }
+    { name: 'DeepSeek V4 Flash 0731', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 88], ['coding', 87], ['opensource']] }
   ];
 
   function scoreMap(m) {
     var map = {};
-    m.b.forEach(function (p) { map[p[0]] = p[1]; });
+    m.b.forEach(function (p) { map[p[0]] = p.length > 1 ? p[1] : -1; });
     return map;
   }
 
   function overall(m) {
-    if (!m.b.length) return 0;
-    return Math.round(m.b.reduce(function (a, p) { return a + p[1]; }, 0) / m.b.length);
+    var scored = m.b.filter(function (p) { return p.length > 1; });
+    if (!scored.length) return 0;
+    return Math.round(scored.reduce(function (a, p) { return a + p[1]; }, 0) / scored.length);
   }
 
   function esc(s) {
@@ -150,7 +151,7 @@
         .slice()
         .sort(function (x, y) { return y[1] - x[1]; })
         .map(function (p) {
-          return '<span class="badge-pill">' + esc(badgeName(p[0])) + ' <b>' + esc(p[1]) + '</b></span>';
+          return '<span class="badge-pill">' + esc(badgeName(p[0])) + (p.length > 1 ? ' <b>' + esc(p[1]) + '</b>' : '') + '</span>';
         }).join('');
 
       card.innerHTML =
