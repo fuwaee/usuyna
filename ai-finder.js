@@ -19,6 +19,7 @@
   // Each model only lists the badges it is made for, with its score on each.
   // b: array of [badgeId, score] pairs.
   var MODELS = [
+    { name: 'DeepSeek V4 Flash 0731', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 88], ['coding', 87], ['opensource', 90]] }
   ];
 
   function scoreMap(m) {
@@ -155,8 +156,10 @@
       card.innerHTML =
         '<div class="row-topline"><span class="row-rank">#' + (idx + 1) + '</span><span class="row-score">' + m._score + '</span></div>' +
         '<div class="row-head"><h3>' + esc(m.name) + '</h3><span class="model-vendor">' + esc(m.vendor) + '</span></div>' +
-        '<div class="row-meta"><span class="row-price">' + priceLabel(m.price) + '</span><span class="row-overall">Overall ' + m._overall + '/100</span></div>' +
-        '<div class="badge-pills">' + pillsHtml + '</div>';
+        '<div class="row-meta"><span class="row-price">' + priceLabel(m.price) + '</span><span class="row-overall">Overall ' + m._overall + '/100</span>' +
+        (m.added ? '<span class="row-added">Benchmarked ' + esc(m.added.split('-').reverse().join('/')) + '</span>' : '') + '</div>' +
+        '<div class="badge-pills">' + pillsHtml + '</div>' +
+        (m.url ? '<a class="model-link" href="' + esc(m.url) + '" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Try ' + esc(m.name) + ' &#8594;</a>' : '');
       listBox.appendChild(card);
     });
   }
