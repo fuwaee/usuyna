@@ -19,7 +19,8 @@
   // Each model only lists the badges it is made for, with its score on each.
   // b: array of [badgeId, score] pairs.
   var MODELS = [
-    { name: 'DeepSeek V4 Flash 0731', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 88], ['coding', 87], ['opensource']] }
+    { name: 'DeepSeek V4 Flash 0731', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 88], ['coding', 87], ['opensource']] },
+    { name: 'DeepSeek V4 Pro 0813', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 89], ['coding', 87], ['opensource']] }
   ];
 
   function scoreMap(m) {
