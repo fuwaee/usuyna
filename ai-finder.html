@@ -48,13 +48,45 @@
           <a class="legal-back" href="index.html">&#8592; Back to Usuyna</a>
           <div class="section-kicker">AI model finder</div>
           <h1>Find the most<br /><em>reliable choice.</em></h1>
-          <p>Coming soon</p>
+          <p>Pick your badges &#8212; we rank the models</p>
         </div>
 
+        <div class="finder-layout reveal reveal-delay">
+          <aside class="finder-side" aria-label="Filters">
+            <div class="side-block">
+              <div class="side-title">Badges</div>
+              <div class="badge-filters" id="badge-filters"></div>
+            </div>
+            <div class="side-block">
+              <div class="side-title">Price <span class="range-value" id="price-range-label">$0 &#8211; $50</span></div>
+              <div class="range-wrap">
+                <div class="range-track"></div>
+                <div class="range-fill" id="range-fill"></div>
+                <input type="range" id="price-min" min="0" max="50" step="1" value="0" aria-label="Minimum price" />
+                <input type="range" id="price-max" min="0" max="50" step="1" value="50" aria-label="Maximum price" />
+              </div>
+            </div>
+            <div class="side-block">
+              <div class="side-title">Sort by</div>
+              <select class="sort-select" id="sort-select" aria-label="Sort models">
+                <option value="match">Badge score</option>
+                <option value="overall">Overall score</option>
+                <option value="price">Lowest price</option>
+              </select>
+            </div>
+            <button class="reset-link" id="reset-filters" type="button">Reset filters</button>
+          </aside>
+
+          <div class="finder-main">
+            <div class="results-head"><span id="results-count"></span></div>
+            <div class="model-list" id="model-list"></div>
+          </div>
+        </div>
       </main>
 
       <footer class="site-footer"><a class="brand" href="index.html"><img class="brand-logo" src="logo.png" alt="" /><span>usuyna</span></a><div class="footer-links"><a href="ai-finder.html">AI model finder</a><a href="legal.html">Legal notice</a></div></footer>
     </div>
+    <script src="ai-finder.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
