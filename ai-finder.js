@@ -19,8 +19,8 @@
   // Each model only lists the badges it is made for, with its score on each.
   // b: array of [badgeId, score] pairs.
   var MODELS = [
-    { name: 'DeepSeek V4 Flash 0731', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 88], ['coding', 87], ['opensource']] },
-    { name: 'DeepSeek V4 Pro 0813', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 89], ['coding', 87], ['reasoning'], ['opensource']] },
+    { name: 'DeepSeek V4 Flash 0731', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 88], ['coding', 87], ['multimodal'], ['opensource']] },
+    { name: 'DeepSeek V4 Pro 0813', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 89], ['coding', 87], ['reasoning'], ['multimodal'], ['opensource']] },
     { name: 'Qwen 3.8 Max', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', b: [['reasoning'], ['coding', 89], ['agentic', 90], ['multimodal', 90], ['opensource']] },
     { name: 'Qwen 3.7 Max', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', b: [['reasoning'], ['agentic', 76], ['coding', 87], ['multimodal', 88], ['opensource']] },
     { name: 'Qwen 3.7 Plus', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', b: [['speed'], ['coding', 82], ['multimodal', 88], ['opensource']] }
@@ -33,9 +33,13 @@
   }
 
   function overall(m) {
-    var scored = m.b.filter(function (p) { return p.length > 1; });
+    // Median-based: a weak score on one badge doesn't let a model be
+    // outranked by another model that simply lacks that badge.
+    var scored = m.b.filter(function (p) { return p.length > 1; }).map(function (p) { return p[1]; }).sort(function (a, b) { return a - b; });
     if (!scored.length) return 0;
-    return Math.round(scored.reduce(function (a, p) { return a + p[1]; }, 0) / scored.length * 10) / 10;
+    var mid = Math.floor(scored.length / 2);
+    var med = scored.length % 2 ? scored[mid] : (scored[mid - 1] + scored[mid]) / 2;
+    return Math.round(med * 10) / 10;
   }
 
   function esc(s) {
@@ -45,9 +49,11 @@
   function matchScore(m) {
     if (!state.badges.length) return overall(m);
     var map = scoreMap(m);
-    var vals = state.badges.filter(function (b) { return map[b] > 0; });
-    if (!vals.length) return -1; // does not carry any selected badge
-    return Math.round(vals.reduce(function (a, b) { return a + map[b]; }, 0) / vals.length);
+    var carried = state.badges.filter(function (b) { return b in map; });
+    if (!carried.length) return -1; // does not carry any selected badge
+    var vals = carried.filter(function (b) { return map[b] > 0; });
+    if (!vals.length) return overall(m); // carries them, just not benchmarked yet
+    return Math.round(vals.reduce(function (a, b) { return a + map[b]; }, 0) / vals.length * 10) / 10;
   }
 
   var state = { badges: [], priceMin: 0, priceMax: 50, sort: 'match' };
@@ -153,7 +159,11 @@
 
       var pillsHtml = m.b
         .slice()
-        .sort(function (x, y) { return y[1] - x[1]; })
+        .sort(function (x, y) {
+          var a = x.length > 1 ? x[1] : -1;
+          var b = y.length > 1 ? y[1] : -1;
+          return b - a;
+        })
         .map(function (p) {
           return '<span class="badge-pill">' + esc(badgeName(p[0])) + (p.length > 1 ? ' <b>' + esc(p[1]) + '</b>' : '') + '</span>';
         }).join('');
