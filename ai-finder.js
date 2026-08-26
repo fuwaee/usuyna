@@ -20,7 +20,10 @@
   // b: array of [badgeId, score] pairs.
   var MODELS = [
     { name: 'DeepSeek V4 Flash 0731', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 88], ['coding', 87], ['opensource']] },
-    { name: 'DeepSeek V4 Pro 0813', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 89], ['coding', 87], ['opensource']] }
+    { name: 'DeepSeek V4 Pro 0813', vendor: 'DeepSeek', price: 0, added: '2026-08-26', url: 'https://chat.deepseek.com/', b: [['agentic', 89], ['coding', 87], ['reasoning'], ['opensource']] },
+    { name: 'Qwen 3.8 Max', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', b: [['reasoning'], ['coding', 89], ['agentic', 90], ['multimodal', 90]] },
+    { name: 'Qwen 3.7 Max', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', b: [['reasoning'], ['agentic', 76], ['coding', 87], ['multimodal', 88]] },
+    { name: 'Qwen 3.7 Plus', vendor: 'Qwen', price: 0, added: '2026-08-26', url: 'https://chat.qwen.ai/', b: [['speed'], ['coding', 82], ['multimodal', 88]] }
   ];
 
   function scoreMap(m) {
