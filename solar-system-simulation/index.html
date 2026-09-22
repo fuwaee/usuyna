@@ -4,17 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="referrer" content="no-referrer" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self'; img-src 'self' https: data: blob:; connect-src 'self' https://ssd.jpl.nasa.gov; worker-src 'self' blob:;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:;" />
   <title>Usuyna Solar System Simulation — Beta 1.0</title>
 
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/"
-      }
-    }
-  </script>
   <script type="module" crossorigin src="./assets/index-OYeZ_Vdr.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-B0W2oiO1.css">
 </head>
@@ -24,8 +16,6 @@
   <header class="panel brand">
     <div class="brand-row"><h1>Usuyna Live Solar System Simulation</h1><span class="beta">Beta 1.0</span></div>
     <p class="clock"><span id="sim-date">—</span></p>
-    <p id="sync-error" class="err hidden"></p>
-    <button id="btn-retry" class="ghost hidden" title="Restart NASA sync">Retry NASA</button>
     <a class="back-link" href="../index.html#tools">← Back to Usuyna tools</a>
   </header>
 
