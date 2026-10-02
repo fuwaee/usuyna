@@ -1,9 +1,0 @@
-# Dossier de dev local — NE JAMAIS PUSH (lourd, node_modules, simu 3D)
-3D-system-simu-(A NE JAMAIS PUSH SUR GITHUB)/
-# Dépendances et fichiers sensibles / temporaires
-node_modules/
-.env
-.env.*
-*.log
-.DS_Store
-Thumbs.db
