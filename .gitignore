@@ -1,0 +1,42 @@
+# ============================================================
+#  Usuyna — fichiers à ne JAMAIS publier sur GitHub
+#  (recréé car il avait été supprimé au commit 19d1b15)
+# ============================================================
+
+# --- Dépendances (des centaines de Mo, inutiles en prod) ---
+node_modules/
+.vite/
+
+# --- Builds / sorties locales ---
+dist/
+build/
+
+# --- Projet de travail local : NE JAMAIS PUBLIER ---
+3D-system-simu-(A NE JAMAIS PUSH SUR GITHUB)/
+
+# --- Secrets, clés, config locale ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.json
+.wrangler/
+
+# --- Fichiers orphelins créés par erreur à la racine (déchets CMD) ---
+/cd
+/dir
+/echo
+/if
+/et
+
+# --- Système / éditeurs ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+.idea/
+.vscode/

@@ -15,10 +15,10 @@ const steps=[...document.querySelectorAll('.method-step')],bar=document.querySel
 steps.forEach(s=>ScrollTrigger.create({trigger:s,start:'top center',end:'bottom center',onToggle(self){if(self.isActive){steps.forEach(x=>x.classList.remove('is-active'));s.classList.add('is-active');}}}));
 if(bar)gsap.to(bar,{width:'100%',ease:'none',scrollTrigger:{trigger:'.method-right',start:'top 70%',end:'bottom 50%',scrub:.6}});
 document.querySelectorAll('.magnetic').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.16,y:(e.clientY-r.top-r.height/2)*.16,duration:.35});});b.addEventListener('mouseleave',()=>gsap.to(b,{x:0,y:0,duration:.55,ease:'elastic.out(1,.5)'}));});
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){e.preventDefault();const t=document.querySelector(id);if(t)lenis?lenis.scrollTo(t,{offset:-110}):t.scrollIntoView({behavior:'smooth'});setMenu(false);}}));
-// Footer vivant : sinusoïde plate et stable + étoiles qui défilent (avancée infinie)
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){e.preventDefault();const t=document.querySelector(id);if(t)lenis?lenis.scrollTo(t,{offset:-headerOffset()}):t.scrollIntoView({behavior:'smooth'});setMenu(false);}}));
+// Sinusoïde du hero : onde plate et stable + étoiles qui défilent (avancée infinie)
 (() => {
-  const canvases = [...document.querySelectorAll('canvas.sine-logo, canvas.sine-hero')];
+  const canvases = [...document.querySelectorAll('canvas.sine-hero')];
   if (!canvases.length) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const states = canvases.map(cv => {
@@ -82,9 +82,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 // Lenis peut garder une position interne périmée, ou le navigateur restaurer un scroll
 // partiel : on resynchronise sur la position réelle pour que le header sticky reste bien
 // plaqué en haut (et qu'une ancre comme #tools ne soit pas cachée derrière lui).
-const HEADER_OFFSET=110;
+const headerOffset=()=>Math.round((document.querySelector('.site-header')?.getBoundingClientRect().height||100)+8);
 const syncScrollState=()=>{const y=window.scrollY||window.pageYOffset||0;if(lenis)lenis.scrollTo(y,{immediate:true});ScrollTrigger.refresh();};
-const scrollToHash=()=>{const h=location.hash;if(!/^#[A-Za-z][\w-]*$/.test(h))return;const t=document.querySelector(h);if(!t)return;lenis?lenis.scrollTo(t,{offset:-HEADER_OFFSET,immediate:true}):t.scrollIntoView();};
+const scrollToHash=()=>{const h=location.hash;if(!/^#[A-Za-z][\w-]*$/.test(h))return;const t=document.querySelector(h);if(!t)return;lenis?lenis.scrollTo(t,{offset:-headerOffset(),immediate:true}):t.scrollIntoView();};
 window.addEventListener('load',()=>{scrollToHash();syncScrollState();});
 window.addEventListener('pageshow',e=>{if(e.persisted){scrollToHash();syncScrollState();}});
 
