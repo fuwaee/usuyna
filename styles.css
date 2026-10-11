@@ -476,3 +476,59 @@ body.landing .rank-top-line{display:grid;grid-template-columns:52px minmax(0,1fr
 body.landing .model-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;padding-top:14px;border-top:1px solid #e9eef4}
 body.landing .model-chip{font-size:11px;padding:5px 11px;border-radius:999px;border:1px dashed #b9cdf5;color:#3d5a80;background:#f2f7ff;white-space:nowrap}
 @media(max-width:640px){body.landing .rank-top-line{grid-template-columns:44px minmax(0,1fr);grid-template-areas:"num main" "go go"}body.landing .rank-top-line .rank-go{grid-area:go}}
+/* ===== MOBILE v900 — tout le site pushé adapté téléphone (hors Arp) ===== */
+@media(max-width:640px){
+body.landing .cal-header{gap:12px;padding:10px 14px}
+body.landing .cal-brand{font-size:20px}
+body.landing .cal-logo-icon{width:52px;height:52px}
+body.landing .cal-header .cal-logo-icon.head{margin:-10px 0}
+body.landing .cal-header .cal-cta{padding:10px 14px;font-size:13px}
+body.landing .cal-nav.open{left:10px;right:10px}
+body.landing .cal-hero.split-hero{gap:26px;padding-top:30px}
+body.landing .split-hero h1{font-size:clamp(32px,9vw,42px)}
+body.landing .cal-sub{font-size:16px}
+body.landing .split-hero .cal-oauth{flex-direction:row;gap:10px;align-items:stretch}
+body.landing .split-hero .oauth-btn{flex:1 1 0;justify-content:center;padding:12px 10px;font-size:13px}
+body.landing .hero-proof{flex-wrap:nowrap;gap:8px}
+body.landing .hero-proof span{flex:1 1 0;min-width:0;padding:8px 6px;text-align:center;font-size:11px}
+body.landing .hero-proof strong{font-size:16px}
+body.landing .cal-4grid.cols3{grid-template-columns:1fr 1fr;gap:10px}
+body.landing .feat-card{padding:16px}
+body.landing .feat-card h3{font-size:17px}
+body.landing .cal-hero-visual.stack{padding:14px}
+body.landing .cal-book-card.vertical{max-width:none}
+body.landing .cal-assistant.overlap-style{padding:44px 14px 60px}
+body.landing .assist-big-title{font-size:clamp(28px,8vw,36px);margin-bottom:18px}
+body.landing .cal-assist-card.overlap .cal-assist-left{padding:26px 20px}
+body.landing .cal-assist-card.overlap .cal-assist-right{padding:18px}
+body.landing .chat-mock{max-width:none}
+body.landing .cal-platform{padding:52px 16px 12px}
+body.landing .plat-head-grid{gap:10px;margin-bottom:20px}
+body.landing .cal-split{padding:34px 16px;gap:18px}
+body.landing .cal-split-copy.card-over{padding:26px 20px}
+body.landing .cal-split-copy h2{font-size:clamp(24px,7vw,32px)}
+body.landing .cal-split-copy p{font-size:15px}
+body.landing .cal-split-media.back{min-height:0;padding:18px}
+body.landing .cal-split-media img{height:200px}
+body.landing .media-chip{left:12px;right:12px;bottom:12px;padding:10px 12px}
+body.landing .rank-preview{max-width:none;padding:16px}
+body.landing .cal-contact{padding:30px 20px}
+body.landing .cal-contact .cal-cta.big{font-size:14px;padding:13px 18px;word-break:break-all}
+body.landing .cal-footer{padding:40px 16px 20px}
+body.landing .cal-foot-cols{grid-template-columns:1fr 1fr;gap:14px}
+body.landing .rank-row{grid-template-columns:38px minmax(0,1fr) auto;grid-template-areas:none;gap:10px;padding:14px}
+body.landing .rank-row .rank-go{grid-area:auto;padding:8px 12px;font-size:12px}
+body.landing .rank-top-line{grid-template-columns:38px minmax(0,1fr) auto;grid-template-areas:none;gap:10px}
+body.landing .rank-top-line .rank-go{grid-area:auto;padding:8px 12px;font-size:12px}
+body.landing .cal-foot-bottom{flex-direction:column;align-items:flex-start;gap:10px}
+body.landing .cal-foot-bottom small{margin-left:0}
+body.landing .rank-main h2{font-size:16px}
+body.landing .rank-tip{padding:12px 14px}
+body.landing .model-chip{font-size:10px}
+}
+@media(max-width:380px){
+body.landing .split-hero .oauth-btn{font-size:12px;padding:11px 8px}
+body.landing .hero-proof strong{font-size:14px}
+body.landing .feat-card h3{font-size:15px}
+body.landing .cal-split-media img{height:170px}
+}
