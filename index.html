@@ -2,44 +2,197 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#061426" />
-<title>Usuyna — Data, without friction.</title>
+<meta name="theme-color" content="#f8f7f4" />
+<meta name="description" content="Usuyna — small, free tools that remove everyday friction. Discover our live simulation, rankings and benchmarks." />
+<title>Usuyna — All the tools around everyday life, handled.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=DM+Sans:opsz,wght@9..40,500;9..40,700;9..40,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=712" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=885" />
+<link rel="icon" href="logo.png" />
 </head>
-<body>
-<div class="page-shell">
-<header class="site-header">
-<a class="brand" href="#top"><img class="brand-logo" src="logo.png" alt="" /><span>usuyna</span></a>
-<nav class="main-nav"><div class="nav-item has-dropdown"><button class="nav-trigger">Explore</button><div class="nav-dropdown"><a href="#vision"><strong>What we do</strong></a><a href="#tools"><strong>Our tools</strong></a><a href="solar-system-simulation/"><strong>Live Solar System Simulation Beta 1.0</strong></a><a href="best-free-ais-ranking.html"><strong>Best Free AIs Ranking</strong></a><a href="best-free-coding-agents-ranking.html"><strong>Best Coding Agents Ranking</strong></a><a href="#methode"><strong>How it works</strong></a><a href="#contact"><strong>Your next tool</strong></a></div></div><a class="nav-trigger" href="#tools">Tools</a><a class="nav-trigger" href="#contact">Contact</a></nav>
-<a class="header-cta magnetic" href="#contact">Let's talk</a>
-<button class="menu-toggle" type="button" aria-label="menu"><span></span><span></span></button>
+<body class="landing">
+
+<header class="cal-header" id="top">
+<a class="cal-brand" href="#top" aria-label="Usuyna home"><span class="cal-logo-icon head"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="lgmaskA" mask-type="luminance"><image href="logo.png" x="0" y="0" width="100" height="100" preserveAspectRatio="xMidYMid slice"/></mask></defs><image href="logo.png" x="0" y="0" width="100" height="100" preserveAspectRatio="xMidYMid slice" mask="url(#lgmaskA)"/></svg></span><span>usuyna</span></a>
+<nav class="cal-nav" aria-label="Primary">
+<div class="cal-nav-item has-drop"><button class="cal-link" type="button">Explore</button>
+<div class="cal-drop">
+<a href="#tools"><strong>What we do</strong><small>Small tools, big time savings</small></a>
+<a href="solar-system-simulation/"><strong>Live Solar System Simulation</strong><small>Real-time 3D Beta 1.0</small></a>
+<a href="best-free-ais-ranking.html"><strong>Best Free AIs Ranking</strong><small>Top 10 right now</small></a>
+<a href="best-free-coding-agents-ranking.html"><strong>Best Coding Agents Ranking</strong><small>IDE / CLI, free quotas</small></a>
+</div></div>
+<a class="cal-link" href="#tools">Tools</a>
+</nav>
+<div class="cal-header-actions">
+<a class="cal-cta magnetic" href="#contact">Contact us</a>
+<button class="cal-burger" type="button" aria-label="menu"><span></span><span></span></button>
+</div>
 </header>
-<main id="top">
-<section class="hero" id="vision">
-<div class="hero-copy" data-reveal-left><p class="kicker">OVERVIEW / TODAY</p><h1 data-split-words>Data, without friction.</h1><p class="hero-intro">Everyday life is complicated enough. Usuyna builds small, simple tools that remove the friction — no noise, no hype, just things that work.</p><div class="hero-actions"><a class="button magnetic" href="#tools">Discover our tools</a><a class="text-link magnetic" href="#methode">See how it works</a></div></div>
-<div class="dash" data-reveal-right><div class="d-card d1"><span>friction</span><b>−82%</b><i>after tools</i></div><div class="d-card d2"><canvas class="sine-hero" width="480" height="220" data-parallax="-10" role="img" aria-label="Signal sinusoïdal stable traversant les étoiles"></canvas><span>signal · stable</span></div><div class="d-card d3"><span>tools live</span><b>03 / 03</b><i>uptime 99.9%</i></div><div class="scroll-cue">SCROLL TO EXPLORE</div></div>
-</section>
-<section class="statement">
-<div data-reveal-left><div class="section-kicker">01 — What we do</div><h2>You have enough<br /><span>to do. Our tools handle the rest.</span></h2></div>
-<div class="s-metric" data-reveal-right><b>1</b><span>problem → 1 tool. We design small, focused tools that solve one everyday problem at a time — so your days get simpler, not busier.</span></div>
-</section>
-<section class="tools-section" id="tools">
-<div class="tools-head" data-reveal-left><div class="section-kicker">02 — Our tools</div><h2>Small tools,<br /><em>big time savings.</em></h2><p>Each tool is free, focused and built around a single everyday need.</p></div>
-<div class="panels">
-<a class="panel big" href="solar-system-simulation/" data-reveal-left><img class="panel-bg bg-simu" src="images/solar-system-simu.png" alt="" aria-hidden="true" data-parallax="8" /><span class="p-k">01 · LIVE 3D</span><span class="p-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="24" cy="24" r="9"/><ellipse cx="24" cy="24" rx="19" ry="6" transform="rotate(-20 24 24)"/></svg></span><strong>Usuyna Live Solar System Simulation Beta 1.0</strong><small>Real-time 3D positions of the planets and the Moon — live clock, no pause, works offline.</small><span class="status"><i></i>Live — Launch simulation</span></a>
-<a class="panel" href="best-free-ais-ranking.html" data-reveal-left><img class="panel-bg bg-ai" src="images/free-ai.png" alt="" aria-hidden="true" data-parallax="8" /><span class="p-k">02 · TOP 10</span><span class="p-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 12h32v16H8z"/><path d="M14 32h20M20 32v6M28 32v6"/></svg></span><strong>Best Free AIs Ranking</strong><small>The 10 best free AIs you can use right now — unlimited, multimodal, with web search.</small><span class="status"><i></i>Live — View ranking</span></a>
-<a class="panel" href="best-free-coding-agents-ranking.html" data-reveal-left><img class="panel-bg bg-ide" src="images/free-ide.png" alt="" aria-hidden="true" data-parallax="8" /><span class="p-k">03 · IDE/CLI</span><span class="p-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 16l-7 8 7 8M33 16l7 8-7 8"/></svg></span><strong>Best Free IDE / CLI AI Coding Agents Ranking</strong><small>The best free coding agents for your IDE and terminal — quotas, models, links.</small><span class="status"><i></i>Live — View ranking</span></a>
+
+<main>
+<!-- HERO -->
+<section class="cal-hero split-hero">
+<div class="hero-left">
+<h1>All the work around<br />everyday life, handled.</h1>
+<p class="cal-sub">Usuyna builds small, free tools that remove friction — live simulations, honest rankings, open benchmarks. No noise, no hype, just things that work.</p>
+<div class="cal-oauth">
+<a class="oauth-btn magnetic" href="#tools">Explore free tools</a>
+<a class="oauth-btn magnetic" href="https://discord.gg/SFbaXnfxs6" target="_blank" rel="noopener"><span class="m-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="#5865F2" d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03ZM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418Z"/></svg></span> Join community</a>
+</div>
+<p class="cal-micro">Free forever &nbsp;•&nbsp; No signup &nbsp;•&nbsp; Works offline</p>
+<div class="hero-proof"><span><strong>04</strong>tools live</span><span><strong>99.9%</strong>uptime</span><span><strong>0€</strong>forever</span></div>
+</div>
+<div class="hero-right">
+<div class="cal-hero-visual stack" data-reveal>
+<div class="cal-hero-glow"></div>
+<div class="cal-book-card vertical simple">
+<div class="cal-book-left">
+<h3>Find tools with the world's simplest library</h3>
+</div>
+<div class="cal-book-right">
+<div class="fresh-list" aria-label="What's new">
+<p class="news-title">What's new</p>
+<a class="news-item" href="solar-system-simulation/"><span class="news-ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span><span class="news-text"><strong>Solar System 3D</strong><small>Live simulation</small></span><span class="news-tag">New</span></a>
+<a class="news-item" href="best-free-ais-ranking.html"><span class="news-ico violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2L12 3z"/></svg></span><span class="news-text"><strong>Top 10 AIs</strong><small>Free ranking</small></span><span class="news-tag">New</span></a>
+<a class="news-item" href="best-free-coding-agents-ranking.html"><span class="news-ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg></span><span class="news-text"><strong>Free Coding Agents</strong><small>IDE and CLI picks</small></span><span class="news-tag dim">Live</span></a>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section class="method" id="methode"><div class="method-sticky">
-<div class="method-left" data-reveal-left><div class="section-kicker">03 — How it works</div><h2>Less friction.<br /><em>More life.</em></h2><p>Our approach starts with a real everyday problem and ends with a tool so simple you forget it's there. We build, test and refine each tool until it just works — so simplifying your day stops being a chore.</p><div class="method-progress"><i class="method-bar"></i></div></div>
-<div class="method-right"><div class="method-step is-active" data-reveal-right><b>01</b><div><strong>Listen</strong><small>Spot a real problem from everyday life.</small></div><span>▂</span></div><div class="method-step" data-reveal-right><b>02</b><div><strong>Build</strong><small>Craft the simplest tool that solves it.</small></div><span>▅</span></div><div class="method-step" data-reveal-right><b>03</b><div><strong>Simplify</strong><small>Refine it until it disappears into your routine.</small></div><span>█</span></div></div>
-</div></section>
-<section class="contact" id="contact"><div class="contact-inner" data-reveal-left><div class="section-kicker">04 — Shall we talk?</div><h2>Wish something in your<br /><em>day was easier?</em></h2><p>Tell us what slows you down, what you've tried or what you dream of — we might just build it.</p><a class="button magnetic" href="mailto:usuyna@gmail.com">usuyna@gmail.com</a></div></section>
+
+<!-- ASSISTANT -->
+<section class="cal-assistant overlap-style">
+<h2 class="assist-big-title" data-reveal>Introducing your<br />everyday helper</h2>
+<div class="cal-assist-card overlap" data-reveal>
+<div class="cal-assist-left">
+<p>Describe what you need — we point you to the best free tool for the job, with direct links and honest limits.</p>
+<ul class="check-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg> Always free, no account needed</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg> Tested by real humans, updated often</li></ul>
+<a class="mini-btn dark" href="#tools">Try it now</a>
+</div>
+<div class="cal-assist-right">
+<div class="chat-mock">
+<div class="chat-head"><span class="dot"></span><strong>usuyna helper</strong><em>online</em></div>
+<div class="bubble bot">Hi! What slows you down today?</div>
+<div class="bubble user">I need a free AI that can search the web</div>
+<div class="bubble bot green">Start with our Top 10 free AIs — unlimited picks inside. <a href="best-free-ais-ranking.html">Open ranking →</a></div>
+<div class="chat-input"><span>Ask anything…</span><i>↑</i></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PLATFORM -->
+<section class="cal-platform split-head bento" id="platform">
+<div class="plat-head-grid" style="align-items:end">
+<div data-reveal style="align-self:end">
+<h2 style="margin:0">Our free tools</h2></div>
+<div class="plat-head-side" data-reveal style="align-self:end"><p class="cal-sub small left" style="margin:0 0 6px 0">Four tools, each does one job. Pick what you need — everything is free, no account.</p></div>
+</div>
+<div class="cal-4grid cols3">
+<a class="feat-card" href="solar-system-simulation/" data-reveal><span class="fc-k">01 · Live 3D</span><h3>Solar System Sim</h3><p class="fc-desc">Real-time 3D planets and Moon.</p><span class="fc-link">Open →</span><div class="fc-blob b1"></div></a>
+<a class="feat-card" href="best-free-ais-ranking.html" data-reveal><span class="fc-k">02 · Ranking</span><h3>Top 10 Free AIs</h3><p class="fc-desc">The best free AIs right now.</p><span class="fc-link">Open →</span><div class="fc-blob b2"></div></a>
+<a class="feat-card" href="best-free-coding-agents-ranking.html" data-reveal><span class="fc-k">03 · Ranking</span><h3>Free Coding Agents</h3><p class="fc-desc">Free IDE and CLI picks.</p><span class="fc-link">Open →</span><div class="fc-blob b3"></div></a>
+</div>
+</section>
+
+<!-- FEATURE 1 -->
+<section class="cal-split overlap right" id="tools">
+<div class="cal-split-copy card-over" data-reveal>
+<p class="mini-kicker"><svg class="k-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg> &nbsp;Live 3D · 01</p>
+<h2>Explore the solar system,<br />live in 3D</h2>
+<p>Real-time positions of all 8 planets and the Moon. Open the page and you're in orbit — smooth 60fps, live clock, zoom freely. Free, no account.</p>
+<div class="accordion">
+<div class="acc-item"><input type="checkbox" id="acc1" /><label for="acc1"><strong>Live positions, always</strong><span><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 4v14M4 11h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span></label><div class="acc-body"><p>Planets and the Moon update in real time — no pause button, just like the real sky.</p></div></div>
+<div class="acc-item"><input type="checkbox" id="acc2" /><label for="acc2"><strong>Click a planet, follow it</strong><span><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 4v14M4 11h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span></label><div class="acc-body"><p>Built for kids, teachers and curious minds: pick any body and travel with it.</p></div></div>
+<div class="acc-item"><input type="checkbox" id="acc3" /><label for="acc3"><strong>Free and simple</strong><span><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M11 4v14M4 11h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span></label><div class="acc-body"><p>No signup, no paywall — open the page and explore.</p></div></div>
+</div>
+<a class="cal-cta magnetic" href="solar-system-simulation/">Launch simulation</a>
+</div>
+<div class="cal-split-media gradient-teal back" data-reveal>
+<img src="images/solar-system-simu.png" alt="Solar system simulation" />
+<div class="media-chip"><span class="avatar"><img src="logo.png" alt="" /></span><div><strong>Live Solar System Beta 1.0</strong><small>Real-time · 3D</small></div><em><span class="live-dot sm"></span> live</em></div>
+</div>
+</section>
+
+<!-- FEATURE 2 -->
+<section class="cal-split overlap left">
+<div class="cal-split-media gradient-pink back" data-reveal>
+<div class="rank-preview">
+<p class="rp-title">Best Free AIs · 10/03/2026</p>
+<a class="rp-row" href="best-free-ais-ranking.html"><span class="rp-num n1">1</span><span class="rp-name">Claude Sonnet 5.5</span><span class="rp-pill lim">limited</span></a>
+<a class="rp-row" href="best-free-ais-ranking.html"><span class="rp-num n2">2</span><span class="rp-name">GLM 5.3</span><span class="rp-pill free">unlimited</span></a>
+<a class="rp-row" href="best-free-ais-ranking.html"><span class="rp-num n3">3</span><span class="rp-name">Qwen 3.8 Max</span><span class="rp-pill lim">limited</span></a>
+<a class="rp-more" href="best-free-ais-ranking.html">+ 7 more in the ranking →</a>
+</div>
+</div>
+<div class="cal-split-copy card-over" data-reveal>
+<p class="mini-kicker"><svg class="k-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2L12 3z"/></svg> &nbsp;Rankings · 02</p>
+<h2>The 10 best free AIs,<br />tested</h2>
+<ul class="check-list dark">
+<li><strong>Unlimited picks flagged</strong><span>See at a glance which AIs are truly unlimited.</span></li>
+<li><strong>Multimodal and web search</strong><span>Every pick checked for vision and live search.</span></li>
+<li><strong>Re-tested often</strong><span>Updated 10/03/2026, with direct official links.</span></li>
+</ul>
+<a class="text-cta" href="best-free-ais-ranking.html">View ranking →</a>
+</div>
+</section>
+
+<!-- FEATURE 3 -->
+<section class="cal-split overlap right">
+<div class="cal-split-copy card-over" data-reveal>
+<p class="mini-kicker"><svg class="k-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg> &nbsp;Rankings · 03</p>
+<h2>Free coding agents<br />for your editor</h2>
+<ul class="check-list dark">
+<li><strong>IDE and terminal covered</strong><span>VS Code extensions, apps and CLIs compared.</span></li>
+<li><strong>Free quotas listed</strong><span>Very large, daily or unlimited — know before you install.</span></li>
+<li><strong>Models that matter</strong><span>Which model powers each free plan.</span></li>
+</ul>
+<a class="text-cta" href="best-free-coding-agents-ranking.html">View ranking →</a>
+</div>
+<div class="cal-split-media gradient-blue back" data-reveal>
+<div class="rank-preview">
+<p class="rp-title">Coding Agents · Free quotas</p>
+<a class="rp-row" href="best-free-coding-agents-ranking.html"><span class="rp-num n1">1</span><span class="rp-name">OpenCode Zen</span><span class="rp-pill free">top pick</span></a>
+<a class="rp-row" href="best-free-coding-agents-ranking.html"><span class="rp-num n2">2</span><span class="rp-name">Cline</span><span class="rp-pill free">large quota</span></a>
+<a class="rp-row" href="best-free-coding-agents-ranking.html"><span class="rp-num n3">3</span><span class="rp-name">Kilo Code</span><span class="rp-pill free">unlimited</span></a>
+<a class="rp-more" href="best-free-coding-agents-ranking.html">See quotas and models →</a>
+</div>
+</div>
+</section>
+
+<!-- RESULTS + INTEGRATIONS removed -->
+
+<!-- CLOSING (trimmed: contact only) -->
+<section class="cal-closing timeline bento-close">
+<div class="cal-contact" id="contact" data-reveal>
+<h3>Wish something in your day was easier?</h3>
+<p>Tell us what slows you down — we might just build it next.</p>
+<a class="cal-cta big magnetic" href="mailto:usuyna@gmail.com">usuyna@gmail.com</a>
+</div>
+</section>
 </main>
-<footer class="site-footer"><a class="brand" href="#top"><img class="brand-logo" src="logo.png" alt="" /><span>usuyna</span></a><div class="footer-links"><a href="#tools">Our tools</a><a href="https://discord.gg/SFbaXnfxs6" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Discord</a><a href="legal.html">Legal notice</a></div></footer>
+
+<footer class="cal-footer">
+<div class="cal-foot-top">
+<h2>Make space for<br />what matters.</h2>
+<div class="cal-foot-cols">
+<div><strong>Products</strong><a href="solar-system-simulation/">Simulation 3D</a><a href="best-free-ais-ranking.html">Free AIs</a><a href="best-free-coding-agents-ranking.html">Coding agents</a></div>
+<div><strong>Usuyna</strong><a href="#platform">What we do</a><a href="#tools">Our tools</a><a href="#contact">Contact</a></div>
+<div><strong>Resources</strong><a href="https://discord.gg/SFbaXnfxs6" target="_blank" rel="noopener">Discord</a><a href="legal.html">Legal notice</a><a href="mailto:usuyna@gmail.com">Email us</a></div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script><script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" integrity="sha384-O55L/6rhHr9CFvrxqv5luxOCcmVaBmETbZbJDP+Do8T0pztTACsFBD/IXCNkj7DV" crossorigin="anonymous"></script><script src="script.js?v=710"></script><div class="site-credit">Made with love by fuwae ❤️</div>
-</body></html>
+</div>
+<div class="cal-foot-bottom">
+<a class="cal-brand light" href="#top"><span class="cal-logo-icon"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="lgmaskB" mask-type="luminance"><image href="logo.png" x="0" y="0" width="100" height="100" preserveAspectRatio="xMidYMid slice"/></mask></defs><image href="logo.png" x="0" y="0" width="100" height="100" preserveAspectRatio="xMidYMid slice" mask="url(#lgmaskB)"/></svg></span><span>usuyna</span></a>
+<small>© 2026 Usuyna · Free forever · Made with love by fuwae</small>
+</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="script.js?v=881"></script>
+</body>
+</html>
